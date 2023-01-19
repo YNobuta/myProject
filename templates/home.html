@@ -1,12 +1,8 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-This is our fantastic page!
-
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    <h1>Welcome. The time now is {{ time_of_day }}</h1>
+    Please select an action
+    <p>
+        <a href="{% url 'maintenance' %}">Visit maintenance page</a><br>
+    </p>
+{%  endblock %}

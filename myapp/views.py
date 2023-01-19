@@ -1,7 +1,8 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 
 from myapp import support_functions
-from myapp.models import Currency
+from myapp.models import Currency, AccountHolder
 
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -38,3 +39,22 @@ def view_currencies(request):
     c_list = Currency.objects.all()
     data['currencies'] = c_list
     return render(request,'currencies.html',context=data)
+
+def whiskymaintenance(request):
+    data = dict()
+    return render(request,"whiskymaintenance.html",context=data)
+
+def register_new_user(request):
+    context = dict()
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+        print("valid form")
+        new_user = form.save()
+        dob = request.POST["dob"]
+        acct_holder = AccountHolder(user=new_user,date_of_birth=dob)
+        acct_holder.save()
+        return render(request,"home.html",context=dict())
+    else:
+        form = UserCreationForm()
+        context['form'] = form
+        return render(request, "registration/register.html", context=context)
