@@ -50,6 +50,12 @@ def whiskymaintenance(request):
             print("Got w_list", len(w_list))
             data['whiskies'] = w_list
             return HttpResponseRedirect(reverse('whiskies'))
+        if choice == "whiskies_booze":
+            support_functions.add_whiskies_booze(support_functions.get_whisky_list_booze())
+            wb_list = WhiskyBooze.objects.all()
+            print("Got wb_list", len(wb_list))
+            data['whiskies_booze'] = wb_list
+            return HttpResponseRedirect(reverse('whiskies_booze'))
     except:
         pass
     return render(request,"whiskymaintenance.html",context=data)
