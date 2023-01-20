@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 
 from myapp import support_functions
-from myapp.models import Currency, AccountHolder, Whisky
+from myapp.models import Currency, AccountHolder, Whisky, WhiskyBooze
 
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -42,7 +42,29 @@ def view_currencies(request):
 
 def whiskymaintenance(request):
     data = dict()
+    try:
+        choice = request.GET['selection']
+        if choice == "whiskies":
+            support_functions.add_whiskies(support_functions.get_whisky_list())
+            w_list = Whisky.objects.all()
+            print("Got w_list", len(w_list))
+            data['whiskies'] = w_list
+            return HttpResponseRedirect(reverse('whiskies'))
+    except:
+        pass
     return render(request,"whiskymaintenance.html",context=data)
+
+def view_pricesA(request):
+    data = dict()
+    w_list = Whisky.objects.all()
+    data['whiskies'] = w_list
+    return render(request,'pricesA.html',context=data)
+
+def view_pricesB(request):
+    data = dict()
+    wb_list = WhiskyBooze.objects.all()
+    data['whiskies_booze'] = wb_list
+    return render(request,'pricesB.html',context=data)
 
 def register_new_user(request):
     context = dict()
@@ -86,7 +108,9 @@ def exch_rate(request):
 def whisky_selection(request):
     data = dict()
     whiskies =Whisky.objects.all()
+    whiskies_booze = WhiskyBooze.objects.all()
     data['whiskies'] = whiskies
+    data['whiskies_booze']= whiskies_booze
     return render(request,"whisky_selector.html",data)
 
 def whisky_price(request):
@@ -95,7 +119,7 @@ def whisky_price(request):
     whiskyA = request.GET['whisky_A']
     whiskyB = request.GET['whisky_B']
     w1 = Whisky.objects.get(item_name=whiskyA)
-    w2 = Whisky.objects.get(item_name=whiskyB)
+    w2 = WhiskyBooze.objects.get(item_name=whiskyB)
     data['whiskyA'] = w1
     data['whiskyB'] = w2
 

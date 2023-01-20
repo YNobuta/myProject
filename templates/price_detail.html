@@ -1,7 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-You are looking for the price of  {{ whiskyA.item_name }} at Nationwide Liquor
-    and the price of {{ whiskyB.item_name }} at "Another Liquor Shop(to be updated)"
-The current price for {{ whiskyA.item_name }} is {{ whiskyA.price}}
-    The current price for {{ whiskyB.item_name }} is {{ whiskyB.price}}
+<p>You are looking for the price of <b>{{ whiskyA.item_name }}</b> at Nationwide Liquor
+and the price of <b>{{ whiskyB.item_name }}</b> at "Another Liquor Shop(to be updated)".</p>
+
+<p>The current price for <b>{{ whiskyA.item_name }}</b> is <b>{{ whiskyA.price}}</b>.</p>
+
+<p>The current price for <b>{{ whiskyB.item_name }}</b> is <b>{{ whiskyB.price}}</b>.</p>
+
+<table>
+  <tr>
+    <th>Whisky Name</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>{{ whiskyA.item_name }}</td>
+    <td>{{ whiskyA.price }}</td>
+  </tr>
+  <tr>
+    <td>{{ whiskyB.item_name }}</td>
+    <td>{{ whiskyB.price }}</td>
+  </tr>
+</table>
+
 {% endblock %}

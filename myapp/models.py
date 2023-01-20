@@ -45,6 +45,16 @@ class Whisky(models.Model):
     def __str__(self):
         return self.item_name + " " + self.price
 
+class WhiskyBooze(models.Model):
+    item_name = models.CharField(max_length=100)
+    price = models.CharField(max_length=10)
+
+    def __repr__(self):
+        return self.item_name + " " + self.price
+
+    def __str__(self):
+        return self.item_name + " " + self.price
+
 class AccountHolder(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     date_of_birth = models.DateField()
@@ -53,3 +63,5 @@ class AccountHolder(models.Model):
         return self.user.username
     def __repr__(self):
         return self.user.username
+
+

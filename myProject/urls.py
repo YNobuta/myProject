@@ -30,6 +30,8 @@ urlpatterns = [
     path('whiskymaintenance',views.whiskymaintenance,name='whiskymaintenance'),
     path('register',views.register_new_user,name="register_user"),
     path('whisky-selection',views.whisky_selection,name="whisky_selector"),
-    path('whisky_price_info',views.whisky_price,name="whisky_price_info")
+    path('whisky_price_info',views.whisky_price,name="whisky_price_info"),
+    path('pricesA',views.view_pricesA, name='whiskies'),
+    path('pricesB',views.view_pricesB, name='whiskies_booze'),
 ]
 

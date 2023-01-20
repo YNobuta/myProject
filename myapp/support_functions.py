@@ -1,4 +1,4 @@
-from myapp.models import Currency, Whisky
+from myapp.models import Currency, Whisky, WhiskyBooze
 
 
 def get_currency_list():
@@ -16,12 +16,13 @@ def get_currency_list():
             detail = line.find_all('td')
             currency = detail[2].get_text().strip()
             iso = detail[3].get_text().strip()
-            if (currency,iso) in currency_list:
+            if (currency, iso) in currency_list:
                 continue
-            currency_list.append((currency,iso))
+            currency_list.append((currency, iso))
         except:
             continue
     return currency_list
+
 
 def add_currencies(currency_list):
     for currency in currency_list:
@@ -30,12 +31,14 @@ def add_currencies(currency_list):
         if len(currency_symbol) > 3:
             continue
         try:
-            c= Currency.objects.get(iso=currency_symbol)
+            c = Currency.objects.get(iso=currency_symbol)
         except:
             c = Currency(long_name=currency_name, iso=currency_symbol)
-            c.save()  #To test out the code, replace this by print(c)
+            c.save()  # To test out the code, replace this by print(c)
+
 
 def get_whisky_list():
+    list_merged = list()
     import requests
     from bs4 import BeautifulSoup
     url = "https://www.nationwideliquor.com/products/japanese-whisky"
@@ -52,16 +55,52 @@ def get_whisky_list():
     for price in data_prices:
         list_prices.append(price.get_text().strip())
 
-    list_marged = list(zip(list_names, list_prices))
-    return list_marged
+    list_merged = list(zip(list_names, list_prices))
+    return list_merged
 
-def add_whiskies(whisky_list):
-    for whisky in whisky_list:
+
+def add_whiskies(list_merged):
+    for whisky in list_merged:
         whisky_name = whisky[0]
         whisky_price = whisky[1]
         try:
-            w= Whisky.objects.get(item_name=whisky_name)
+            w = Whisky.objects.get(item_name=whisky_name)
         except:
             w = Whisky(item_name=whisky_name, price=whisky_price)
-            w.save()  #To test out the code, replace this by print(c)
+            w.save()  # To test out the code, replace this by print(c)
+            # print(w)
+
+
+def get_whisky_list_booze():
+    list_booze_merged = list()
+    import requests
+    from bs4 import BeautifulSoup
+    url = "https://youbooze.com/collections/japanese-1"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content)
+    data_names = soup.find_all('a', {"class": "full-unstyled-link center"})
+    data_prices = soup.find_all('span', {"class": "price-item price-item--regular"})
+
+    list_names = []
+    for name in data_names:
+        if name.get_text().strip() not in list_names:
+            list_names.append(name.get_text().strip())
+
+    list_prices = []
+    for price in data_prices:
+        list_prices.append(price.get_text().strip())
+
+    list_booze_merged = list(zip(list_names, list_prices))
+    return list_booze_merged
+
+
+def add_whiskies_booze(list_booze_merged):
+    for whisky in list_booze_merged:
+        whisky_name = whisky[0]
+        whisky_price = whisky[1]
+        try:
+            wb = WhiskyBooze.objects.get(item_name=whisky_name)
+        except:
+            wb = WhiskyBooze(item_name=whisky_name, price=whisky_price)
+            wb.save()  # To test out the code, replace this by print(c)
             # print(w)

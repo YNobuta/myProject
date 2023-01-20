@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <h4>Please select Japanese Whisky you want to know price</h4>
                     <select class="form-control" name="whisky_B" size="20">
-                        {% for whisky in whiskies %}
+                        {% for whisky in whiskies_booze %}
                             <option value="{{ whisky.item_name }}">{{ whisky.item_name }}</option>
                        {% endfor %}
                     </select>
