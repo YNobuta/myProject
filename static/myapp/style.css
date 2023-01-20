@@ -1,5 +1,13 @@
-h1 {
-    color: #993300;
+h2 {
+    color: #00ff40;
+}
+
+h2 {
+    color: #ff0073;
+}
+
+h3 {
+    color: #0051ff;
 }
 
 #footer { /* use with id = "footer" */
@@ -11,3 +19,13 @@ h1 {
    font-size: xx-small;
 }
 
+.large-font { /* use with class="large-font" */
+   font-size: large;
+   color: crimson;
+}
+
+.lobster {
+    color: coral;
+    font-family: 'lobster';
+    font-size: 36px;
+}

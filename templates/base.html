@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Currency App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
 </head>
 <body>
-<img src='{% static "myapp/logo.png" %}' alt="image" width="400px">
+    <h1 class=“large-font">Welcome!</h1>
+    <!--<h2 class=“large-font">to Currency App!</h2>
+    <img src='{% static "myapp/logo.png" %}' alt="image" width="400px">-->
     <span style="float:right;">
         {% if user.username %}
             <span class="large-font">Hello {{ user.username }}!</span><br>
