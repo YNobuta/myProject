@@ -29,5 +29,7 @@ urlpatterns = [
     path('exchange_rate_info',views.exch_rate,name="exchange_rate_info"),
     path('whiskymaintenance',views.whiskymaintenance,name='whiskymaintenance'),
     path('register',views.register_new_user,name="register_user"),
+    path('whisky-selection',views.whisky_selection,name="whisky_selector"),
+    path('whisky_price_info',views.whisky_price,name="whisky_price_info")
 ]
 

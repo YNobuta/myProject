@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 
 from myapp import support_functions
-from myapp.models import Currency, AccountHolder
+from myapp.models import Currency, AccountHolder, Whisky
 
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -82,3 +82,21 @@ def exch_rate(request):
     except:
         pass
     return render(request,"exchange_detail.html",data)
+
+def whisky_selection(request):
+    data = dict()
+    whiskies =Whisky.objects.all()
+    data['whiskies'] = whiskies
+    return render(request,"whisky_selector.html",data)
+
+def whisky_price(request):
+    data=dict()
+
+    whiskyA = request.GET['whisky_A']
+    whiskyB = request.GET['whisky_B']
+    w1 = Whisky.objects.get(item_name=whiskyA)
+    w2 = Whisky.objects.get(item_name=whiskyB)
+    data['whiskyA'] = w1
+    data['whiskyB'] = w2
+
+    return render(request,"price_detail.html",data)

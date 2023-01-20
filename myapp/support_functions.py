@@ -35,7 +35,6 @@ def add_currencies(currency_list):
             c = Currency(long_name=currency_name, iso=currency_symbol)
             c.save()  #To test out the code, replace this by print(c)
 
-
 def get_whisky_list():
     import requests
     from bs4 import BeautifulSoup

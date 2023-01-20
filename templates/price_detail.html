@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+You are looking for the price of  {{ whiskyA.item_name }} at Nationwide Liquor
+    and the price of {{ whiskyB.item_name }} at "Another Liquor Shop(to be updated)"
+The current price for {{ whiskyA.item_name }} is {{ whiskyA.price}}
+    The current price for {{ whiskyB.item_name }} is {{ whiskyB.price}}
+{% endblock %}

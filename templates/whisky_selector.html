@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="{% url 'whisky_price_info' %}" method="get">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <h4>Please select Japanese Whisky you want to know price</h4>
+                    <select class="form-control d-inline-block" name="whisky_A" size="20">
+                        {% for whisky in whiskies %}
+                            <option value="{{ whisky.item_name }}">{{ whisky.item_name }}</option>
+                       {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <h4>Please select Japanese Whisky you want to know price</h4>
+                    <select class="form-control" name="whisky_B" size="20">
+                        {% for whisky in whiskies %}
+                            <option value="{{ whisky.item_name }}">{{ whisky.item_name }}</option>
+                       {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="submit">
+    </form>
+{% endblock %}
