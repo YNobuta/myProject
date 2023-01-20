@@ -130,3 +130,9 @@ def whisky_price(request):
     data['whiskyB'] = w2
 
     return render(request,"price_detail.html",data)
+
+def view_beginners(request):
+    #data = dict()
+    #c_list = Currency.objects.all()
+    #data['currencies'] = c_list
+    return render(request,'beginners.html',context={})

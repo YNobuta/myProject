@@ -1,26 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="jumbotron text-center">
-        <p>What a wonderful App this is!</p>
+        <p>Unveil the world of premium Japanese whiskey at prices you can't resist</p>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <h3 class="lobster">Currency Rates!</h3>
-                <p>Using this app, you can get exchange rates easily!</p>
+            <div class="col-sm-6">
+                <h3 class="lobster">For Whisky Beginners!</h3>
+                <p><a href="{% url 'beginners' %}">How to find your favorite whisky</a><br></p>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <h3 class="lobster">Navigation!</h3>
                 <p> Please choose an action from the following options
                 <p>
-                    <a href="{% url 'maintenance' %}">Do maintenance</a><br>
-                    <a href="{% url 'whisky_selector' %}">Search prices</a><br>
+                    <a href="{% url 'whiskymaintenance' %}">(Admins Only) Do maintenance</a><br>
+                    <a href="{% url 'whisky_selector' %}">(Log-in required) Search prices</a><br>
                     Other stuff<br></p>
             </div>
-            <div class="col-sm-4">
-                <h3 class="lobster">The future!</h3>
-                <p>Soon, you will be able to invest your money by buying, selling and saving in any currency!</p>
-            </div>
+
         </div>
     </div>
 {%  endblock %}

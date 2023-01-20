@@ -16,16 +16,22 @@ h3 {
    height:1em;
    padding: 2em 0.25em;
    text-align: center;
-   font-size: xx-small;
+   font-size: x-small;
 }
 
 .large-font { /* use with class="large-font" */
    font-size: large;
-   color: crimson;
+   color: #705a30;
 }
 
 .lobster {
-    color: coral;
+    color: rgba(255, 200, 80, 0.7);
     font-family: 'lobster';
+    font-size: 36px;
+}
+
+.diot {
+    color: coral;
+    font-family: 'diot';
     font-size: 36px;
 }

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% if user.username %}
 {% block content %}
     <form action="{% url 'whisky_price_info' %}" method="get">
         <div class="row">
@@ -26,3 +27,4 @@
         <input type="submit" value="submit">
     </form>
 {% endblock %}
+{% endif %}
