@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 
 from myapp import support_functions
-from myapp.models import Currency, AccountHolder, Whisky, WhiskyBooze
+from myapp.models import Currency, AccountHolder, Whisky, WhiskyBooze, Whisky2, WhiskyBooze2
 
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -122,9 +122,16 @@ def whisky_selection(request):
     data['whiskies_booze']= whiskies_booze
     return render(request,"whisky_selector.html",data)
 
+def whisky_selection2(request):
+    data = dict()
+    whiskies2 =Whisky2.objects.all()
+    whiskies_booze2 = WhiskyBooze2.objects.all()
+    data['whiskies2'] = whiskies2
+    data['whiskies_booze2']= whiskies_booze2
+    return render(request,"whisky_selector2.html",data)
+
 def whisky_price(request):
     data=dict()
-
     whiskyA = request.GET['whisky_A']
     whiskyB = request.GET['whisky_B']
     w1 = Whisky.objects.get(item_name=whiskyA)
@@ -136,3 +143,49 @@ def whisky_price(request):
 
 def view_beginners(request):
     return render(request,'beginners.html',context={})
+
+def view_pricesA2(request):
+    data = dict()
+    w_list2 = Whisky2.objects.all()
+    data['whiskies2'] = w_list2
+    return render(request,'priceA2.html',context=data)
+
+def view_pricesB2(request):
+    data = dict()
+    wb_list2 = WhiskyBooze2.objects.all()
+    data['whiskies_booze2'] = wb_list2
+    return render(request,'priceB2.html',context=data)
+
+def whiskymaintenance2(request):
+    data = dict()
+    try:
+        choice = request.GET['selection']
+        if choice == "whiskies2":
+            support_functions.add_whiskies2(support_functions.get_whisky_list2())
+            w_list = Whisky2.objects.all()
+            print("Got w_list", len(w_list))
+            data['whiskies2'] = w_list
+            return HttpResponseRedirect(reverse('whiskies2'))
+        elif choice == "whiskies_booze2":
+            support_functions.add_whiskies_booze2(support_functions.get_whisky_list_booze2())
+            wb_list = WhiskyBooze2.objects.all()
+            print("Got wb_list", len(wb_list))
+            data['whiskies_booze2'] = wb_list
+            return HttpResponseRedirect(reverse('whiskies_booze2'))
+        elif choice == "delete_whiskies":
+            support_functions.delete_all()
+            return HttpResponseRedirect(reverse('whisky_selector'))
+    except:
+        pass
+    return render(request,"whiskymaintenance2.html",context=data)
+
+def whisky_price2(request):
+    data=dict()
+    whiskyA = request.GET['whisky_A']
+    whiskyB = request.GET['whisky_B']
+    w1 = Whisky2.objects.get(item_name=whiskyA)
+    w2 = WhiskyBooze2.objects.get(item_name=whiskyB)
+    data['whiskyA'] = w1
+    data['whiskyB'] = w2
+
+    return render(request,"price_detail2.html",data)

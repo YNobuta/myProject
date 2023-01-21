@@ -64,4 +64,24 @@ class AccountHolder(models.Model):
     def __repr__(self):
         return self.user.username
 
+class Whisky2(models.Model):
+    item_name = models.CharField(max_length=300)
+    price = models.CharField(max_length=10)
+    url = models.CharField(max_length=300)
 
+    def __repr__(self):
+        return self.item_name + " " + self.price + " " + self.url
+
+    def __str__(self):
+        return self.item_name + " " + self.price + " " + self.url
+
+class WhiskyBooze2(models.Model):
+    item_name = models.CharField(max_length=300,default="")
+    price = models.CharField(max_length=20,default=0)
+    url = models.CharField(max_length=300,default="")
+
+    def __repr__(self):
+        return self.item_name + " " + self.price + " " + self.url
+
+    def __str__(self):
+        return self.item_name + " " + self.price + " " + self.url

@@ -28,11 +28,16 @@ urlpatterns = [
     path('currency-selection',views.currency_selection,name="currency_selector"),
     path('exchange_rate_info',views.exch_rate,name="exchange_rate_info"),
     path('whiskymaintenance',views.whiskymaintenance,name='whiskymaintenance'),
+    path('whiskymaintenance2',views.whiskymaintenance2,name='whiskymaintenance2'),
     path('register',views.register_new_user,name="register_user"),
     path('whisky-selection',views.whisky_selection,name="whisky_selector"),
+    path('whisky-selection2',views.whisky_selection2,name="whisky_selector2"),
     path('whisky_price_info',views.whisky_price,name="whisky_price_info"),
+    path('whisky_price_info2',views.whisky_price2,name="whisky_price_info2"),
     path('pricesA',views.view_pricesA, name='whiskies'),
     path('pricesB',views.view_pricesB, name='whiskies_booze'),
+    path('priceA2', views.view_pricesA2, name='whiskies2'),
+    path('priceB2', views.view_pricesB2, name='whiskies_booze2'),
     path('beginners',views.view_beginners, name='beginners'),
 ]
 
