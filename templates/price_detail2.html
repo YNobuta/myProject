@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="bahn24">
+  <tr>
+    <th>Whisky Name</th>
+    <th>&nbsp;Price</th>
+    <th>&nbsp;Store</th>
+    <th>&nbsp;Link</th>
+  </tr>
+  <tr>
+    <td>{{ whiskyA.item_name }}</td>
+    <td class="bahn24red">&nbsp;{{ whiskyA.price }}</td>
+    <td>&nbsp;@ LiquorStore.com</td>
+    <td><a href="{{ whiskyA.url }}" target="_blank">&nbsp;Click here!</a></td>
+  </tr>
+  <tr>
+    <td>{{ whiskyB.item_name }}</td>
+    <td  class="bahn24red">&nbsp;{{ whiskyB.price }}</td>
+    <td>&nbsp;@ YouBooze</td>
+    <td><a href="{{ whiskyB.url }}" target="_blank">&nbsp;Click here!</a></td>
+  </tr>
+</table>
+
+{% endblock %}

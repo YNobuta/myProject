@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    {% for wb in whiskies_booze2 %}
+        <tr><td>{{wb.item_name}}</td><td>{{ wb.price }}</td><td>{{ wb.url }}</td>></tr>
+    {% endfor %}
+</table>
+</body>
+</html>
