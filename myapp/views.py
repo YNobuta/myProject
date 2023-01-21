@@ -142,7 +142,7 @@ def whisky_price(request):
     return render(request,"price_detail.html",data)
 
 def view_beginners(request):
-    return render(request,'beginners.html',context={})
+    return render(request, 'beginners.html', context={})
 
 def view_pricesA2(request):
     data = dict()
