@@ -1,4 +1,4 @@
-h2 {
+h1 {
     color: #00ff40;
 }
 
@@ -7,7 +7,7 @@ h2 {
 }
 
 h3 {
-    color: #0051ff;
+    color: #ffffff;
 }
 
 #footer { /* use with id = "footer" */
@@ -30,8 +30,36 @@ h3 {
     font-size: 36px;
 }
 
-.diot {
-    color: coral;
-    font-family: 'diot';
+.bahn36top {
+    color: white;
+    font-family: 'Bahnschrift SemiBold';
     font-size: 36px;
+}
+
+.bahn32 {
+    color: #c97e0e;
+    font-family: 'Bahnschrift SemiBold';
+    font-size: 32px;
+}
+
+.bahn24 {
+    color: black;
+    font-family: 'Bahnschrift SemiBold';
+    font-size: 24px;
+}
+
+.bahn24link {
+    color: blue;
+    font-family: 'Bahnschrift SemiBold';
+    font-size: 24px;
+}
+
+.bahn24red {
+    color: #e81212;
+    font-family: 'Bahnschrift SemiBold';
+    font-size: 24px;
+}
+
+.jumbotron {
+    background-color:transparent !important;
 }

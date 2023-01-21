@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="jumbotron text-center">
-        <p>Unveil the world of premium Japanese whiskey at prices you can't resist</p>
+    <div class="">
+        <h3 style="background: #ff7300;" class="bahn36top">&nbsp;&nbsp;&nbsp;Unveil the world of premium Japanese whiskey at prices you can't resist</h3>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h3 class="lobster">For Whisky Beginners!</h3>
-                <p><a href="{% url 'beginners' %}">How to find your favorite whisky</a><br></p>
+                <h3 class="bahn32">For Whisky Beginners</h3>
+                <p><a class="bahn24link" href="{% url 'beginners' %}">How to find your favorite whisky</a><br></p>
             </div>
             <div class="col-sm-6">
-                <h3 class="lobster">Navigation!</h3>
-                <p> Please choose an action from the following options
+                <h3 class="bahn32">Navigation</h3>
+                <h4 class="bahn24"> Please choose an action from the following options</h4>
                 <p>
-                    <a href="{% url 'whiskymaintenance' %}">(Admins Only) Do maintenance</a><br>
-                    <a href="{% url 'whisky_selector' %}">(Log-in required) Search prices</a><br>
+                    <a class="bahn24link" href="{% url 'whisky_selector' %}">(Log-in required) Search prices</a><br>
+                    <a class="bahn24link" href="{% url 'whiskymaintenance' %}">(Admins Only) Do maintenance</a><br>
                     Other stuff<br></p>
             </div>
 

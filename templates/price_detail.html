@@ -1,24 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-    <p>  </p>
-    <p>  </p>
-<p>You are looking for the price of <b>{{ whiskyA.item_name }}</b> at Nationwide Liquor
-and the price of <b>{{ whiskyB.item_name }}</b> at "Another Liquor Shop(to be updated)".</p>
 
-<p>The current price for <b>{{ whiskyA.item_name }}</b> is <b>{{ whiskyA.price}}</b>.</p>
+<p class="bahn24">You are looking for the price of <b class="bahn24red">{{ whiskyA.item_name }}</b> at Nationwide Liquor
+and the price of <b class="bahn24red">{{ whiskyB.item_name }}</b> at Youbooze.</p>
 
-<p>The current price for <b>{{ whiskyB.item_name }}</b> is <b>{{ whiskyB.price}}</b>.</p>
-
-<table>
+<table class="bahn24">
   <tr>
     <th>Whisky Name</th>
     <th>Price</th>
   </tr>
-  <tr>
+  <tr class="bahn24red">
     <td>{{ whiskyA.item_name }}</td>
     <td>{{ whiskyA.price }}</td>
   </tr>
-  <tr>
+  <tr class="bahn24red">
     <td>{{ whiskyB.item_name }}</td>
     <td>{{ whiskyB.price }}</td>
   </tr>
