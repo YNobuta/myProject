@@ -1,23 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <p class="bahn24">You are looking for the price of <b class="bahn24red">{{ whiskyA.item_name }}</b> at LiquorStore.com and</p>
-<p class="bahn24">the price of <b class="bahn24red">{{ whiskyB.item_name }}</b> at YouBooze.</p>
-
 <table class="bahn24">
   <tr>
     <th>Whisky Name</th>
     <th>&nbsp;Price</th>
     <th>&nbsp;Store</th>
   </tr>
-  <tr class="bahn24red">
+  <tr>
     <td>{{ whiskyA.item_name }}</td>
-    <td>&nbsp;{{ whiskyA.price }}</td>
+    <td class="bahn24red">&nbsp;{{ whiskyA.price }}</td>
     <td>&nbsp;@ LiquorStore.com</td>
   </tr>
-  <tr class="bahn24red">
+  <tr>
     <td>{{ whiskyB.item_name }}</td>
-    <td>&nbsp;{{ whiskyB.price }}</td>
+    <td  class="bahn24red">&nbsp;{{ whiskyB.price }}</td>
     <td>&nbsp;@ YouBooze</td>
   </tr>
 </table>
