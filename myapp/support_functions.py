@@ -109,3 +109,10 @@ def add_whiskies_booze(list_booze_merged):
             wb = WhiskyBooze(item_name=whisky_name, price=whisky_price)
             wb.save()  # To test out the code, replace this by print(c)
             # print(w)
+
+
+def delete_all():
+    for whisky in Whisky.objects.all():
+        whisky.delete()
+    for whisky in WhiskyBooze.objects.all():
+        whisky.delete()
