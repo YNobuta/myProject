@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <h4>Please select Japanese Whisky you want to know price</h4>
+                    <h4 class="bahn24">Japanese Whisky List @ LiquorStore.com</h4>
                     <select class="form-control d-inline-block" name="whisky_A" size="20">
                         {% for whisky in whiskies %}
                             <option value="{{ whisky.item_name }}">{{ whisky.item_name }}</option>
@@ -15,7 +15,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <h4>Please select Japanese Whisky you want to know price</h4>
+                    <h4 class="bahn24">Japanese Whisky List @ YouBooze</h4>
                     <select class="form-control" name="whisky_B" size="20">
                         {% for whisky in whiskies_booze %}
                             <option value="{{ whisky.item_name }}">{{ whisky.item_name }}</option>
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <input type="submit" value="submit">
+        <input type="submit" value="compare prices">
     </form>
 {% endblock %}
 {% endif %}
