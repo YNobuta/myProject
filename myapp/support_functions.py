@@ -41,11 +41,11 @@ def get_whisky_list():
     list_merged = list()
     import requests
     from bs4 import BeautifulSoup
-    url = "https://www.nationwideliquor.com/products/japanese-whisky"
+    url = "https://theliquorstore.com/collections/japanese-whiskey"
     response = requests.get(url)
     soup = BeautifulSoup(response.content)
-    data_names = soup.find_all('a', {"class": "product_title"})
-    data_prices = soup.find_all('div', {"class": "pb_price"})
+    data_names = soup.find_all('a', {"class": "product-thumbnail__title"})
+    data_prices = soup.find_all('span', {"class": "money"})
 
     list_names = []
     for name in data_names:
@@ -53,9 +53,14 @@ def get_whisky_list():
 
     list_prices = []
     for price in data_prices:
-        list_prices.append(price.get_text().strip())
+        list_prices.append(price.get_text().replace("USD", "").strip())
+
+    del list_prices[:6]
+    list_prices.pop(1)
+    list_prices.pop(4)
 
     list_merged = list(zip(list_names, list_prices))
+
     return list_merged
 
 
