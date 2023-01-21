@@ -115,7 +115,9 @@ def whisky_selection(request):
     data = dict()
     whiskies =Whisky.objects.all()
     whiskies_booze = WhiskyBooze.objects.all()
+    data['whiskies'] =[]
     data['whiskies'] = whiskies
+    data['whiskies_booze'] = []
     data['whiskies_booze']= whiskies_booze
     return render(request,"whisky_selector.html",data)
 
