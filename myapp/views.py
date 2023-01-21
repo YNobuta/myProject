@@ -174,7 +174,7 @@ def whiskymaintenance2(request):
             return HttpResponseRedirect(reverse('whiskies_booze2'))
         elif choice == "delete_whiskies":
             support_functions.delete_all()
-            return HttpResponseRedirect(reverse('whisky_selector'))
+            return HttpResponseRedirect(reverse('whisky_selector2'))
     except:
         pass
     return render(request,"whiskymaintenance2.html",context=data)
