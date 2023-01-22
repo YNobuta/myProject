@@ -10,7 +10,8 @@
                 {% load static %}
                 <img src="{% static 'myapp/forbeginners.png'%}" alt="For Whisky Beginners" width="250px">
                 <h4 class="bahn24"> Please choose what you need to know before selecting whisky</h4>
-                <p><a class="bahn24link" href="{% url 'beginners' %}">How to find your favorite whisky</a><br></p>
+                <p><a class="bahn24link" href="{% url 'beginners' %}">All about whisky!</a><br>
+                    <a class="bahn24link" href="https://house.suntory.com/japanese-whisky">Learn Suntory whisky</a></p>
             </div>
             <div class="col-sm-6">
                 <h3 class="bahn32">Navigation</h3>
@@ -18,7 +19,7 @@
                 <img src="{% static 'myapp/navigations.png'%}" alt="For Whisky Beginners" width="250px">
                 <h4 class="bahn24"> Please choose an action from the following options</h4>
                 <p>
-                    <a class="bahn24link" href="{% url 'whisky_selector2' %}">Compare prices (Log-in required)</a><br>
+                    <a class="bahn24link" href="{% url 'whisky_selector2' %}">Compare prices</a><br>
                     <a class="bahn24link" href="{% url 'whiskymaintenance2' %}">Do maintenance (Admins Only)</a></p>
             </div>
 

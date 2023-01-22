@@ -1,30 +1,28 @@
 {% extends "base.html" %}
-{% if user.username %}
 {% block content %}
-    <form action="{% url 'whisky_price_info2' %}" method="get">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <h4 class="bahn24">Japanese Whisky List @ LiquorStore.com</h4>
-                    <select class="form-control d-inline-block" name="whisky_A" size="20">
-                        {% for whisky in whiskies2 %}
-                            <option value="{{ whisky.item_name }}">{{ whisky.item_name }}</option>
-                       {% endfor %}
-                    </select>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <h4 class="bahn24">Japanese Whisky List @ YouBooze</h4>
-                    <select class="form-control" name="whisky_B" size="20">
-                        {% for whisky in whiskies_booze2 %}
-                            <option value="{{ whisky.item_name }}">{{ whisky.item_name }}</option>
-                       {% endfor %}
-                    </select>
-                </div>
-            </div>
-        </div>
-        <input type="submit" value="compare prices">
-    </form>
+<form action="{% url 'whisky_price_info2' %}" method="get">
+<div class="row">
+<div class="col-sm-6">
+<div class="form-group">
+<h4 class="bahn24">Japanese Whisky List @ LiquorStore.com</h4>
+<select class="form-control d-inline-block" name="whisky_A" size="20">
+{% for whisky in whiskies2 %}
+<option value="{{ whisky.item_name }}">{{ whisky.item_name }}</option>
+{% endfor %}
+</select>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group">
+<h4 class="bahn24">Japanese Whisky List @ YouBooze</h4>
+<select class="form-control" name="whisky_B" size="20">
+{% for whisky in whiskies_booze2 %}
+<option value="{{ whisky.item_name }}">{{ whisky.item_name }}</option>
+{% endfor %}
+</select>
+</div>
+</div>
+</div>
+<input type="submit" value="compare prices">
+</form>
 {% endblock %}
-{% endif %}

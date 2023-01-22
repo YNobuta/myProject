@@ -21,5 +21,8 @@
     <td><a href="{{ whiskyB.url }}" target="_blank">&nbsp;Click here!</a></td>
   </tr>
 </table>
-
+<br>
+<form action="{% url 'whisky_selector2' %}">
+    <input type="submit" value="Go back to lists">
+</form>
 {% endblock %}

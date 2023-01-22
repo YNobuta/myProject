@@ -6,6 +6,7 @@ from myapp.models import Currency, AccountHolder, Whisky, WhiskyBooze, Whisky2, 
 
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+
 # Create your views here.
 
 def home(request):
@@ -124,10 +125,16 @@ def whisky_selection(request):
 
 def whisky_selection2(request):
     data = dict()
+    user = request.user
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
     whiskies2 =Whisky2.objects.all()
     whiskies_booze2 = WhiskyBooze2.objects.all()
     data['whiskies2'] = whiskies2
     data['whiskies_booze2']= whiskies_booze2
+    data['user'] = user
     return render(request,"whisky_selector2.html",data)
 
 def whisky_price(request):
